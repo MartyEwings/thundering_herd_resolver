@@ -1,5 +1,5 @@
 {
-  "name": "martinewings-thundering_herd_resolver",
+  "name": "martyewings-thundering_herd_resolver",
   "version": "0.1.0",
   "author": "martyewings",
   "summary": "To alleviate a thundering herd condition, this module contains tasks that will randomise the restart of the puppet agent based on the current runinterval",
@@ -57,7 +57,7 @@
   "requirements": [
     {
       "name": "puppet",
-      "version_requirement": ">= 4.7.0 < 6.0.0"
+      "version_requirement": ">= 5.0.0  < 6.0.0"
     }
   ],
   "pdk-version": "1.2.0",
