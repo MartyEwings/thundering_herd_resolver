@@ -7,8 +7,6 @@ First Release
 
 
 
-**Features**
+## Release 0.1.1
 
-**Bugfixes**
-
-**Known Issues**
+Added Licence Information to the Readme
