@@ -40,7 +40,7 @@ powershell_herd_resolver - for windows server systems
 
 ## Release Notes/Contributors/Etc.
 
-0.1.1 first release
+0.1.2 first release
 
 ## Copyright and License
 
