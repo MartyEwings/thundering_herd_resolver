@@ -1,6 +1,6 @@
 {
   "name": "martyewings-thundering_herd_resolver",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "author": "martyewings",
   "summary": "To alleviate a thundering herd condition, this module contains tasks that will randomise the restart of the puppet agent based on the current runinterval",
   "license": "Apache-2.0",
