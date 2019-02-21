@@ -1,8 +1,8 @@
 {
   "name": "martyewings-thundering_herd_resolver",
-  "version": "0.1.2",
+  "version": "1.0.0",
   "author": "martyewings",
-  "summary": "To alleviate a thundering herd condition, this module contains tasks that will randomise the restart of the puppet agent based on the current runinterval",
+  "summary": "To alleviate a thundering herd condition,tasks that will randomise the restart of the puppet agent based on the current runinterval",
   "license": "Apache-2.0",
   "source": "https://github.com/MartyEwings/thundering_herd_resolver.git",
   "dependencies": [
@@ -57,10 +57,10 @@
   "requirements": [
     {
       "name": "puppet",
-      "version_requirement": ">= 5.3.1  < 6.0.0"
+      "version_requirement": ">= 5.3.1  <= 6.0.5"
     }
   ],
-  "pdk-version": "1.2.0",
-  "template-url": "file:///opt/puppetlabs/pdk/share/cache/pdk-module-template.git",
-  "template-ref": "heads/master-0-g3f7d5ce"
+  "pdk-version": "1.9.0",
+  "template-url": "file:///opt/puppetlabs/pdk/share/cache/pdk-templates.git",
+  "template-ref": "1.9.0-0-g7281db5"
 }
