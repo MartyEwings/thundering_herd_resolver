@@ -1,0 +1,45 @@
+.gitlab-ci.yml:
+  delete: true
+appveyor.yml:
+  delete: true
+Gemfile:
+  required:
+    ':system_tests':
+      - gem: 'puppet-module-posix-system-r#{minor_version}'
+        platforms: ruby
+      - gem: 'puppet-module-win-system-r#{minor_version}'
+        platforms:
+          - mswin
+          - mingw
+          - x64_mingw
+      - gem: 'puppet_litmus'
+        platforms:
+          - ruby
+          - mswin
+          - mingw
+          - x64_mingw
+        condition: "ENV['PUPPET_GEM_VERSION'].nil? or ENV['PUPPET_GEM_VERSION'] !~ %r{ 5}"
+Rakefile:
+  requires:
+  use_litmus_tasks: true
+  extras:
+    - |
+       desc 'Syntax check shellscripts'
+       task :shellcheck do
+         Dir['{tasks,files}/**/*.sh'].each do |shell_file|
+           sh "shellcheck #{shell_file}" do |ok, res|
+               exit res.exitstatus unless ok
+           end
+         end
+       end
+    - |
+       desc 'Check task names'
+        task :tasknames do
+          errors = Dir['tasks/**/*'].map do |task|
+              "Task name \"#{task}\" is invalid" if File.basename(task) !~ /\A[a-z][a-z0-9_]*\.[a-z0-9_]+\Z/
+          end.compact
+          abort errors.join("\n") if errors.any?
+       end
+
+.travis.yml:
+  unmanaged: true
