@@ -25,10 +25,16 @@ When the tasks in this module are run on any given node, they will take the curr
 
 ### Beginning with thundering_herd_resolver  
 
-Install the Module, select the task appropriate to the OS Target node the options are:
+Install the module and run the single cross-platform task:
 
-bash_herd_resolver - for Linux systems running a bash shell
-powershell_herd_resolver - for windows server systems
+```
+bolt task run thundering_herd_resolver::resolve --targets <targets>
+```
+
+The task automatically selects the correct implementation based on the target's
+shell: the bash implementation runs on \*nix targets (those advertising the
+`shell` feature) and the PowerShell implementation runs on Windows targets
+(those advertising the `powershell` feature). No need to pick a per-OS task.
 
 
 

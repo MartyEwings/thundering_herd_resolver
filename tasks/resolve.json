@@ -1,0 +1,21 @@
+{
+  "puppet_task_version": 1,
+  "supports_noop": false,
+  "description": "Alleviate a thundering herd by restarting the Puppet agent service after a random delay between 1 second and the configured runinterval. The correct implementation is selected automatically from the target's shell: bash on *nix targets (shell feature) and PowerShell on Windows targets (powershell feature).",
+  "parameters": {
+  },
+  "implementations": [
+    {
+      "name": "resolve.sh",
+      "requirements": [
+        "shell"
+      ]
+    },
+    {
+      "name": "resolve.ps1",
+      "requirements": [
+        "powershell"
+      ]
+    }
+  ]
+}

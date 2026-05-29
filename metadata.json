@@ -1,70 +1,82 @@
 {
   "name": "martyewings-thundering_herd_resolver",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "author": "martyewings",
   "summary": "To alleviate a thundering herd condition,tasks that will randomise the restart of the puppet agent based on the current runinterval",
   "license": "Apache-2.0",
   "source": "https://github.com/MartyEwings/thundering_herd_resolver.git",
+  "project_page": "https://github.com/MartyEwings/thundering_herd_resolver/blob/master/README.md",
   "issues_url": "https://github.com/MartyEwings/thundering_herd_resolver/issues",
   "dependencies": [
 
   ],
   "operatingsystem_support": [
     {
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": [
+        "8",
+        "9"
+      ]
+    },
+    {
       "operatingsystem": "CentOS",
       "operatingsystemrelease": [
-        "6",
-        "7"
+        "8",
+        "9"
       ]
     },
     {
       "operatingsystem": "OracleLinux",
       "operatingsystemrelease": [
-        "7"
+        "8",
+        "9"
       ]
     },
     {
-      "operatingsystem": "RedHat",
+      "operatingsystem": "Rocky",
       "operatingsystemrelease": [
-        "6",
-        "7"
+        "8",
+        "9"
       ]
     },
     {
-      "operatingsystem": "Scientific",
+      "operatingsystem": "AlmaLinux",
       "operatingsystemrelease": [
-        "7"
+        "8",
+        "9"
       ]
     },
     {
       "operatingsystem": "Debian",
       "operatingsystemrelease": [
-        "8"
+        "11",
+        "12"
       ]
     },
     {
       "operatingsystem": "Ubuntu",
       "operatingsystemrelease": [
-        "16.04"
+        "20.04",
+        "22.04",
+        "24.04"
       ]
     },
     {
       "operatingsystem": "windows",
       "operatingsystemrelease": [
-        "Server 2008 R2",
-        "Server 2012",
-        "Server 2012 R2",
-        "Server 2016"
+        "Server 2016",
+        "Server 2019",
+        "Server 2022"
       ]
     }
   ],
   "requirements": [
     {
       "name": "puppet",
-      "version_requirement": ">= 5.3.1  <= 9.0.0"
+      "version_requirement": ">= 7.0.0 < 9.0.0"
     }
   ],
-  "pdk-version": "3.0.0",
-  "template-url": "pdk-default#3.0.0",
-  "template-ref": "tags/3.0.0-0-g056e50d"
+  "pdk-version": "3.4.0",
+  "template-url": "pdk-default#3.4.0",
+  "template-ref": "tags/3.4.0"
 }
