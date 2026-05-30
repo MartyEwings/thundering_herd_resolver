@@ -1,0 +1,68 @@
+name: CI
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  shellcheck:
+    name: ShellCheck (tasks)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run ShellCheck
+        uses: ludeeus/action-shellcheck@master
+        with:
+          scandir: ./tasks
+
+  powershell-lint:
+    name: PSScriptAnalyzer (tasks)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run PSScriptAnalyzer
+        shell: pwsh
+        run: |
+          Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
+          Install-Module -Name PSScriptAnalyzer -Force -Scope CurrentUser
+          $results = Invoke-ScriptAnalyzer -Path ./tasks -Recurse -Severity Warning
+          if ($results) {
+            $results | Format-Table -AutoSize
+            throw "PSScriptAnalyzer found $($results.Count) issue(s)"
+          }
+          Write-Host "PSScriptAnalyzer: no issues found"
+
+  pdk-validate:
+    name: PDK validate
+    runs-on: ubuntu-latest
+    container:
+      image: puppet/pdk:3.4.0
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: pdk validate
+        run: pdk validate --format=text --parallel
+
+  pdk-test-unit:
+    name: PDK unit tests
+    runs-on: ubuntu-latest
+    container:
+      image: puppet/pdk:3.4.0
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: pdk test unit
+        run: pdk test unit --parallel
