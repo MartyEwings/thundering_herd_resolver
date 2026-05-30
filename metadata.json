@@ -5,7 +5,7 @@
   "summary": "To alleviate a thundering herd condition,tasks that will randomise the restart of the puppet agent based on the current runinterval",
   "license": "Apache-2.0",
   "source": "https://github.com/MartyEwings/thundering_herd_resolver.git",
-  "project_page": "https://github.com/MartyEwings/thundering_herd_resolver/blob/master/README.md",
+  "project_page": "https://github.com/MartyEwings/thundering_herd_resolver/blob/main/README.md",
   "issues_url": "https://github.com/MartyEwings/thundering_herd_resolver/issues",
   "dependencies": [
 
